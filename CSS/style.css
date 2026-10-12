@@ -1,10 +1,11 @@
 :root {
-    --color-fondo: #f4f4f4; 
-    --color-texto: #1a1a1a; 
-    --color-principal: #000000;
-    --color-acento: #8c52ff; 
+    --color-fondo: #0a0a0a;
+    --color-seccion: #1a1a1a;
+    --color-texto: #e0e0e0; 
+    --color-titulos: #ffffff;
+    --color-acento: #b93d36; 
     
-    --color-acento-alfa: rgba(140, 82, 255, 0.85);
+    --color-acento-alfa: rgba(185, 61, 54, 0.85);
     
     --fuente-base: 'Helvetica Neue', Arial, sans-serif;
 }
@@ -24,16 +25,18 @@ body {
 
 
 header {
-    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento-alfa) 100%);
+    background: linear-gradient(135deg, #000000 0%, var(--color-acento-alfa) 100%);
     color: white;
     padding: 2rem 0; 
     text-align: center;
+    border-bottom: 3px solid var(--color-acento);    
 }
 
 header h1 {
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     margin-bottom: 0.5rem;
+    color: var(--color-titulos);
 }
 
 nav {
@@ -41,14 +44,15 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: var(--color-texto);
     text-decoration: none;
     margin: 0 1rem;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #cccccc;
+    color: var(--color-acento);
 }
 
 main {
@@ -58,11 +62,12 @@ main {
 }
 
 section {
-    background-color: white;
+    background-color: var(--color-seccion);
     margin-bottom: 3rem;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    border: 1px solid #333333;   
 }
 
 section h2 {
@@ -71,6 +76,11 @@ section h2 {
     margin-bottom: 2rem;
     font-size: 2rem;
 }
+
+section h3 {
+    color: var(--color-titulos);
+}
+
 
 main section:nth-of-type(2) {
     display: flex;
@@ -84,16 +94,19 @@ main section:nth-of-type(2) h2 {
 }
 
 article {
-    background-color: var(--color-fondo);
+    background-color: #222222;
     padding: 1.5rem;
     border-radius: 10px;
     width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
 }
 
 article:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(185, 61, 54, 0.25); 
+    border-color: var(--color-acento);
 }
 
 article img {
@@ -109,7 +122,7 @@ article h3 {
 
 article strong {
     color: var(--color-acento);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 blockquote {
@@ -118,7 +131,7 @@ blockquote {
     border-left: 5px solid var(--color-acento);
     padding-left: 1rem;
     margin: 1.5rem 0 0.5rem 0;
-    color: #555;
+    color: #aaaaaa;
 }
 
 cite {
@@ -126,9 +139,117 @@ cite {
     display: block;
     margin-bottom: 1.5rem;
     text-align: right;
+    color: var(--color-acento);
 }
 
 iframe {
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+table {
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #222222;
+    color: var(--color-texto);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid #444444;
+
+}
+
+th {
+    background-color: var(--color-acento);
+    color: var(--color-titulos);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+tbody tr:hover {
+    background-color: #333333;
+}
+
+td img {
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+    color: var(--color-titulos);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    background-color: #333333;
+    color: var(--color-titulos);
+    border: 1px solid #555555;
+    border-radius: 5px;
+    font-family: var(--fuente-base);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 8px rgba(185, 61, 54, 0.6);
+}
+
+button {
+    background-color: var(--color-acento);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #9c332d;
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+main {
+    padding: 1rem;
+}
+
+section {
+    padding: 1.5rem;
+}
+
+section {
+    overflow-x: auto; 
+}    
 }
