@@ -96,8 +96,9 @@
         </section>
 
         <section>
+            <section id="hacer-pedido">
             <h2>Haz tu pedido</h2>
-            <form action="#" method="POST">
+            <form action="https://wa.me/573133139364" method="get" target="_blank">
 
                 <div>
                     <label for="nombre">Nombre completo:</label>
@@ -113,13 +114,30 @@
                     <label for="telefono">Teléfono (WhatsApp):</label>
                     <input type="tel" id="telefono" name="telefono" required>
                 </div>
+
                 <div>
-                    <label for="mensaje">¿Qué prenda deseas pedir?</label><br>
-                    <textarea id="mensaje" rows="4" cols="50" required></textarea> 
+                    <label for="direccion">Dirección de envío:</label>
+                    <input type="text" id="direccion" name="direccion" required>
                 </div>
 
                 <div>
-                    <button type="submit">Enviar Pedido</button>
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+                </div>
+
+                <div>
+                    <label for="direccion">Código postal:</label>
+                    <input type="text" id="postal" name="postal" required>
+                </div>                
+
+
+                <div>
+                    <label for="text">Detalla tu pedido aquí:</label><br>
+                    <textarea id="mensaje" name="text" rows="5" cols="50" required placeholder="Ej: Hola, soy Kevin Jiménez. Quiero una camiseta Juicio talla L. Mi dirección es Calle 49 #21-22, barrio Antonia Santos, Bucaramanga."></textarea>
+                </div>
+
+                <div>
+                    <button type="submit">Enviar pedido por WhatsApp</button>
                 </div>
 
             </form>
