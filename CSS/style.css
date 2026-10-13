@@ -153,7 +153,9 @@ main section:nth-of-type(2) h2 {
 
 /* Conflicto 3 por Orden */
 .tarjeta-prenda { background-color: #555555; } /* Pierde por estar arriba */
-.tarjeta-prenda { background-color: #222222; } /* Gana por orden cascada */
+.tarjeta-prenda { background-color: #222222;   /* Gana por orden cascada */
+    padding: 1.5rem;
+} 
 
 .tarjeta-prenda {
     padding: 1.5rem;
