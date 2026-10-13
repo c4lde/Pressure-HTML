@@ -16,6 +16,18 @@
     box-sizing: border-box;
 }
 
+header {
+    background-image: linear-gradient(135deg, rgba(5,5,5,0.9) 0%, var(--color-acento-alfa) 100%), 
+                      url("../Imagenes/Banner-Pressure.jpg");
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 4px solid var(--color-acento);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
 /* Conflicto 1: gana body por tener etiqueta contra el * */
 body {
     font-family: var(--fuente-base);
@@ -26,16 +38,6 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-wrap: break-word;
-}
-
-header {
-    background: linear-gradient(135deg, rgba(5,5,5,0.9) 0%, var(--color-acento-alfa) 100%), 
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.2) 10px, rgba(0,0,0,0.2) 20px);
-    color: white;
-    padding: 3rem 0; 
-    text-align: center;
-    border-bottom: 4px solid var(--color-acento);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);    
 }
 
 header h1 {
@@ -354,7 +356,7 @@ section ul li a:hover {
     color: #ffffff;
     border-color: var(--color-acento);
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(185, 61, 54, 0.4)
+    box-shadow: 0 5px 15px rgba(185, 61, 54, 0.4);
 }
 
 aside {
