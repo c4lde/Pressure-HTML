@@ -318,11 +318,11 @@ section ul li a {
 }
 
 section ul li a:hover {
-    background-color: var(--color-texto);
+    background-color: var(--color-acento);
     color: #ffffff;
     border-color: var(--color-acento);
     transform: translateY(-5px);
-    box-shadow: 0 px 15px rgba(185, 61, 54, 0.4)
+    box-shadow: 0 5px 15px rgba(185, 61, 54, 0.4)
 }
 
 aside {
@@ -334,7 +334,7 @@ aside {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.2rem;
-    box-shadow: o -4px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
     animation: pulso 2s infinite;
 }
 
@@ -350,7 +350,7 @@ footer {
     text-align: center;
     padding: 2rem;
     border-top: 1px solid #222;
-    font-size: 0.9 rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
@@ -371,10 +371,6 @@ main {
 
 section {
     padding: 1.5rem;
-}
-
-section {
-    overflow-x: auto; 
 }
 
 section {
