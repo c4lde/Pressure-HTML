@@ -36,7 +36,7 @@ Reglas que compiten sobre el mismo `<article>`:
 * `.tarjeta-prenda` -> Especificidad (0,1,0) -> `background-color: #555555;`
 * `.tarjeta-prenda` -> Especificidad (0,1,0) -> `background-color: #222222;`
 **Resultado:** Al haber un empate exacto en especificidad (una clase), gana la regla de `#222222` por orden de cascada (fue declarada última en el archivo `styles.css`).
-![Conflicto 3](Capturas/Conflicto-3.jpg.jpg)
+![Conflicto 3](Capturas/Conflicto-3.jpg)
 
 ## 5. Herencia
 * **Propiedad heredada:** `font-family` y `color` (definidas en el `body`, se heredan automáticamente a elementos hijos como `<p>`, `<li>`, sin declararlas de nuevo).
