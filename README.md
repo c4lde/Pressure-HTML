@@ -23,20 +23,20 @@ A continuación, se documentan tres conflictos reales de la hoja `styles.css` re
 * `*` -> Especificidad (0,0,0) -> `margin: 0;`
 * `header h1` -> Especificidad (0,0,2) -> `margin-bottom: 0.5rem;`
 **Resultado:** Gana `header h1` por contar con dos etiquetas en su selector frente al selector universal. El navegador aplica el `0.5rem` y tacha el `0` universal.
-![Conflicto 1](capturas/Conflicto%20#1.jpg)
+![Conflicto 1](Capturas/Conflicto-1.jpg)
 
 ### Conflicto 2: Color de los subtítulos H2
 * `h2` -> Especificidad (0,0,1) -> `color: #888888;`
 * `section h2` -> Especificidad (0,0,2) -> `color: var(--color-acento);`
 **Resultado:** Gana `section h2` al poseer mayor peso (dos etiquetas), aplicando el color rojo de acento y tachando la regla gris del `h2` general.
-![Conflicto 2](capturas/Conflicto%20#2.jpg)
+![Conflicto 2](Capturas/Conflicto-2.jpg)
 
 ### Conflicto 3: Resolución por Orden en Cascada
 Reglas que compiten sobre el mismo `<article>`:
 * `.tarjeta-prenda` -> Especificidad (0,1,0) -> `background-color: #555555;`
 * `.tarjeta-prenda` -> Especificidad (0,1,0) -> `background-color: #222222;`
 **Resultado:** Al haber un empate exacto en especificidad (una clase), gana la regla de `#222222` por orden de cascada (fue declarada última en el archivo `styles.css`).
-![Conflicto 3](capturas/Conflicto%20#3.jpg)
+![Conflicto 3](Capturas/Conflicto-3.jpg.jpg)
 
 ## 5. Herencia
 * **Propiedad heredada:** `font-family` y `color` (definidas en el `body`, se heredan automáticamente a elementos hijos como `<p>`, `<li>`, sin declararlas de nuevo).
