@@ -16,6 +16,7 @@
     box-sizing: border-box;
 }
 
+/* Conflicto 1: gana body por tener etiqueta contra el * */
 body {
     font-family: var(--fuente-base);
     background-color: var(--color-fondo);
@@ -24,10 +25,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-wrap: break-word;
 }
 
 header {
-    background: linear-gradient(135deg, #050505 0%, #151515 50%, var(--color-acento-alfa) 100%);
+    background: linear-gradient(135deg, rgba(5,5,5,0.9) 0%, var(--color-acento-alfa) 100%), 
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.2) 10px, rgba(0,0,0,0.2) 20px);
     color: white;
     padding: 3rem 0; 
     text-align: center;
@@ -62,11 +65,21 @@ nav a:hover {
     text-shadow: 0px 0px 8px rgba(185, 61, 54, 0.5);
 }
 
+nav a:focus-visible {
+    outline: 2px dashed var(--color-acento);
+    outline-offset: 4px;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
     flex: 1;
+}
+
+section:target {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 20px rgba(185, 61, 54, 0.4);
 }
 
 section {
@@ -78,6 +91,9 @@ section {
     border: 1px solid #333333;   
 }
 
+/* Conflicto 2: gana section h2 por especificidad contra h2 general */
+h2 { color: #888888; }
+
 section h2 {
     color: var(--color-acento);
     text-align: center;
@@ -85,6 +101,16 @@ section h2 {
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-acento);
+    margin: 10px auto 0 auto;
 }
 
 section h3 {
@@ -123,8 +149,11 @@ main section:nth-of-type(2) h2 {
     width: 100%;
 }
 
-main section:nth-of-type(2) article {
-    background-color: #222222;
+/* Conflicto 3 por Orden */
+.tarjeta-prenda { background-color: #555555; } /* Pierde por estar arriba */
+.tarjeta-prenda { background-color: #222222; } /* Gana por orden cascada */
+
+.tarjeta-prenda {
     padding: 1.5rem;
     border-radius: 10px;
     width: 300px;
@@ -133,24 +162,22 @@ main section:nth-of-type(2) article {
     border: 1px solid transparent;
 }
 
-main section:nth-of-type(2) article:hover {
+.tarjeta-prenda:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(185, 61, 54, 0.25); 
     border-color: var(--color-acento);
 }
 
-main section:nth-of-type(2) article img {
+.tarjeta-prenda__imagen {
     max-width: 100%; 
     height: auto;
     border-radius: 8px;
     margin-bottom: 1rem;
 }
 
-main section:nth-of-type(2) article h3 {
-    margin-bottom: 0.5rem;
-}
+.tarjeta-prenda__titulo { margin-bottom: 0.5rem; }
 
-main section:nth-of-type(2) article strong {
+.tarjeta-prenda strong {
     color: var(--color-acento);
     font-size: 1.3rem;
 }
@@ -159,6 +186,12 @@ main section:nth-of-type(3) ol {
     list-style-position: inside;
     max-width: 700px;
     margin: 0 auto;
+}
+
+main section:nth-of-type(3) ol li::marker {
+    color: var(--color-acento);
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 main section:nth-of-type(3) ol li {
@@ -260,8 +293,7 @@ label {
     color: var(--color-titulos);
 }
 
-input, textarea {
-    width: 100%;
+input[type="text"], input[type="email"], input[type="tel"], textarea {    width: 100%;
     padding: 12px;
     margin-top: 5px;
     background-color: #333333;
@@ -371,11 +403,8 @@ main {
 
 section {
     padding: 1.5rem;
+    overflow-x: auto; 
 }
-
-section {
-        overflow-x: auto; 
-    }
 
 section ul {
         flex-direction: column;
